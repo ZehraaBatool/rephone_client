@@ -40,7 +40,7 @@ export const SellerAuthProvider = ({ children }) => {
             
             // The backend endpoint for fetching the current seller's profile
             // Note: In your backend, this should be protected with JWT verification middleware
-            const response = await axios.get('http://localhost:5000/api/seller/profile', {
+            const response = await axios.get('https://rephone-backend.vercel.app/api/seller/profile', {
                 withCredentials: true // Ensure cookies are sent with the request
             });
 
@@ -67,7 +67,7 @@ export const SellerAuthProvider = ({ children }) => {
     
             console.log('Attempting login with email:', email);
             const response = await axios.post(
-                'http://localhost:5000/api/seller/login',
+                'https://rephone-backend.vercel.app/api/seller/login',
                 { email, password },
                 { withCredentials: true } // This ensures cookies are accepted
             );
@@ -79,7 +79,7 @@ export const SellerAuthProvider = ({ children }) => {
             
             // Fetch the profile to get seller data
             // Use the userId from login response
-            const profileResponse = await axios.get(`http://localhost:5000/api/seller/profile/${userId}`, {
+            const profileResponse = await axios.get(`https://rephone-backend.vercel.app/api/seller/profile/${userId}`, {
                 withCredentials: true
             });
             
@@ -112,7 +112,7 @@ export const SellerAuthProvider = ({ children }) => {
             }
 
             const response = await axios.put(
-                `http://localhost:5000/api/seller/profile/${seller.userId}`,
+                `https://rephone-backend.vercel.app/api/seller/profile/${seller.userId}`,
                 formData,
                 {
                     withCredentials: true,
@@ -141,7 +141,7 @@ export const SellerAuthProvider = ({ children }) => {
             }
             
             console.log('Fetching products');
-            const response = await axios.get(`http://localhost:5000/api/seller/phones/${seller.sellerId}`, {
+            const response = await axios.get(`https://rephone-backend.vercel.app/api/seller/phones/${seller.sellerId}`, {
                 withCredentials: true
             });
     
@@ -169,7 +169,7 @@ export const SellerAuthProvider = ({ children }) => {
             
             console.log('Fetching orders');
             
-            const response = await axios.get(`http://localhost:5000/api/seller/orders/${seller.sellerId}`, {
+            const response = await axios.get(`https://rephone-backend.vercel.app/seller/orders/${seller.sellerId}`, {
                 withCredentials: true
             });
     
@@ -191,7 +191,7 @@ export const SellerAuthProvider = ({ children }) => {
         try {
             console.log('Logging out');
             // Call logout endpoint to clear the cookie
-            await axios.post('http://localhost:5000/api/seller/logout', {}, { withCredentials: true });
+            await axios.post('https://rephone-backend.vercel.app/api/seller/logout', {}, { withCredentials: true });
             
             // Clear state
             setSeller(null);

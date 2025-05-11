@@ -21,7 +21,7 @@ const CatalogPage = () => {
       setLoading(true);
       setError(null);
       try {
-        const res = await fetch('http://localhost:5000/api/product/verified');
+        const res = await fetch('https://rephone-backend.vercel.app/api/product/verified');
         if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
         const data = await res.json();
 

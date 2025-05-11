@@ -13,7 +13,7 @@ const ProductDescription = () => {
 
     useEffect(() => {
         setIsLoading(true);
-        fetch(`http://localhost:5000/api/product/${id}`)
+        fetch(`https://rephone-backend.vercel.app/api/product/${id}`)
             .then((res) => {
                 if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
                 return res.json();

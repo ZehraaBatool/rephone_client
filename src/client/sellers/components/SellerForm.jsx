@@ -30,7 +30,7 @@ export const SellerForm = () => {
     useEffect(() => {
         const fetchBrands = async () => {
             try {
-                const response = await fetch("http://localhost:5000/api/product/brands", {
+                const response = await fetch("https://rephone-backend.vercel.app/api/product/brands", {
                     credentials: 'include'
                 });
                 if (!response.ok) throw new Error('Network response was not ok');
